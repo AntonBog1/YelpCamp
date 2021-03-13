@@ -1,14 +1,13 @@
 mapboxgl.accessToken = mapToken;
-const campground = JSON.parse(campgroundData);
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/outdoors-v11',
-    center: JSON.parse(campgroundCoordinates),
+    center: campground.geometry.coordinates,
     zoom: 10
 });
 
 new mapboxgl.Marker()
-    .setLngLat(JSON.parse(campgroundCoordinates))
+    .setLngLat(campground.geometry.coordinates)
     .setPopup(
         new mapboxgl.Popup({ offset: 25 })
             .setHTML(
